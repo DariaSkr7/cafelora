@@ -5,6 +5,7 @@ const drinkList = (drinks) => {
   return drinks.map((drink) => {
     return (
       <Drink
+        id={drink.id}
         key={drink.id}
         name={drink.name}
         ordered={drink.ordered}

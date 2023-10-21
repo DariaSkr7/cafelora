@@ -7,7 +7,13 @@ const layersFun = (layerArray) => {
   });
 };
 
-export const Drink = ({ name, ordered, image, layers }) => {
+export const Drink = ({ name, ordered, image, layers, id }) => {
+  let orderedClass = '';
+  let buttonText = 'Objednat';
+  if (ordered) {
+    buttonText = 'Zrusit';
+    orderedClass = 'order-btn--ordered';
+  }
   return (
     <div className="drink">
       <div className="drink__product">
@@ -20,7 +26,9 @@ export const Drink = ({ name, ordered, image, layers }) => {
         </div>
       </div>
       <div className="drink__controls">
-        <button className="order-btn">Objednat</button>
+        <button id={id} className={`order-btn ${orderedClass}`}>
+          {buttonText}
+        </button>
       </div>
     </div>
   );

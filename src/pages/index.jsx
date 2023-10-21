@@ -8,6 +8,22 @@ import { Footer } from '../components/footer';
 import '../global.css';
 import './index.css';
 
+const orderDrink = async (id) => {
+  const response = await fetch(`http://localhost:4000/api/drinks/${id}`, {
+    method: 'PATCH',
+    body: JSON.stringify([
+      {
+        op: 'replace',
+        path: '/ordered',
+        value: true,
+      },
+    ]),
+  });
+
+  const data = response.json();
+  console.log(data);
+};
+
 const loadDrinks = async () => {
   const response = await fetch('http://localhost:4000/api/drinks');
   const data = await response.json();
@@ -34,4 +50,16 @@ navBtn.addEventListener('click', () => {
 });
 navRollout.addEventListener('click', () => {
   navRollout.classList.toggle('nav-closed');
+});
+
+document.querySelectorAll('.order-btn').forEach((btn) => {
+  btn.addEventListener('click', async () => {
+    btn.classList.toggle('order-btn--ordered');
+    if (btn.classList.contains('order-btn--ordered')) {
+      btn.textContent = 'Zrusit';
+      await orderDrink(btn.id);
+    } else {
+      btn.textContent = 'Objednat';
+    }
+  });
 });
