@@ -32,7 +32,7 @@ const loadDrinks = async () => {
 
 document.querySelector('#root').innerHTML = render(
   <div className="page">
-    <Header />
+    <Header showMenu={true} />
     <main>
       <Banner />
       <Menu drinks={await loadDrinks()} />

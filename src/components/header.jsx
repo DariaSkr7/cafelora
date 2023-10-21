@@ -1,6 +1,6 @@
 import './header.css';
 
-export const Header = () => {
+export const Header = ({ showMenu }) => {
   return (
     <header>
       <div className="header__content container">
@@ -8,12 +8,18 @@ export const Header = () => {
 
         <div className="navigation">
           <button className="nav-btn"></button>
-          <nav className="rollout-nav nav-closed">
-            <a href="#home">domů</a>
-            <a href="#menu">menu</a>
-            <a href="#gallery">galerie</a>
-            <a href="#contact">kontakt</a>
-          </nav>
+          {showMenu ? (
+            <nav className="rollout-nav nav-closed">
+              <a href="#home">domů</a>
+              <a href="#menu">menu</a>
+              <a href="#gallery">galerie</a>
+              <a href="#contact">kontakt</a>
+            </nav>
+          ) : (
+            <nav className="rollout-nav nav-closed">
+              <a href="/">Hlavní stránka</a>
+            </nav>
+          )}
         </div>
       </div>
     </header>
