@@ -8,12 +8,18 @@ import { Footer } from '../components/footer';
 import '../global.css';
 import './index.css';
 
+const loadDrinks = async () => {
+  const response = await fetch('http://localhost:4000/api/drinks');
+  const data = await response.json();
+  return data.result;
+};
+
 document.querySelector('#root').innerHTML = render(
   <div className="page">
     <Header />
     <main>
       <Banner />
-      <Menu />
+      <Menu drinks={await loadDrinks()} />
       <Gallery />
       <Contact />
     </main>
