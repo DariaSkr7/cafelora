@@ -11,11 +11,33 @@ import './index.css';
 const orderDrink = async (id) => {
   const response = await fetch(`http://localhost:4000/api/drinks/${id}`, {
     method: 'PATCH',
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
     body: JSON.stringify([
       {
         op: 'replace',
         path: '/ordered',
         value: true,
+      },
+    ]),
+  });
+
+  const data = response.json();
+  console.log(data);
+};
+
+const cancelDrink = async (id) => {
+  const response = await fetch(`http://localhost:4000/api/drinks/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+    body: JSON.stringify([
+      {
+        op: 'replace',
+        path: '/ordered',
+        value: false,
       },
     ]),
   });
@@ -60,6 +82,7 @@ document.querySelectorAll('.order-btn').forEach((btn) => {
       await orderDrink(btn.id);
     } else {
       btn.textContent = 'Objednat';
+      await cancelDrink(btn.id);
     }
   });
 });
