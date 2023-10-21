@@ -11,14 +11,10 @@ export const Menu = () => {
         </p>
         <div className="drinks-list">
           <Drink
-            name="Romano"
+            name="Espresso"
             ordered={false}
-            image="/cups/lungo.png"
+            image="/cups/espresso.png"
             layers={[
-              {
-                color: '#fbdf5b',
-                label: 'citrón',
-              },
               {
                 color: '#613916',
                 label: 'espresso',
@@ -26,75 +22,33 @@ export const Menu = () => {
             ]}
           />
 
-          <div className="drink">
-            <div className="drink__product">
-              <div className="drink__cup">
-                <img src="/cups/espresso.png" />
-              </div>
-              <div className="drink__info">
-                <h3>Espresso</h3>
-                <div className="layer">
-                  <div
-                    className="layer__color"
-                    style={{ backgroundColor: '#613916' }}
-                  ></div>
-                  <div className="layer__label">espresso</div>
-                </div>
-              </div>
-            </div>
-            <div className="drink__controls">
-              <button className="order-btn">Objednat</button>
-            </div>
-          </div>
+          <Drink
+            name="Doppio"
+            ordered={false}
+            image="/cups/doppio.png"
+            layers={[
+              {
+                color: '#613916',
+                label: 'espresso',
+              },
+            ]}
+          />
 
-          <div className="drink">
-            <div className="drink__product">
-              <div className="drink__cup">
-                <img src="/cups/doppio.png" />
-              </div>
-              <div className="drink__info">
-                <h3>Doppio</h3>
-                <div className="layer">
-                  <div
-                    className="layer__color"
-                    style={{ backgroundColor: '#613916' }}
-                  />
-                  <div className="layer__label">espresso</div>
-                </div>
-              </div>
-            </div>
-            <div className="drink__controls">
-              <button className="order-btn">Objednat</button>
-            </div>
-          </div>
-
-          <div className="drink">
-            <div className="drink__product">
-              <div className="drink__cup">
-                <img src="/cups/lungo.png" />
-              </div>
-              <div className="drink__info">
-                <h3>Lungo</h3>
-                <div className="layer">
-                  <div
-                    className="layer__color"
-                    style={{ backgroundColor: '#b0dee1' }}
-                  />
-                  <div className="layer__label">voda</div>
-                </div>
-                <div className="layer">
-                  <div
-                    className="layer__color"
-                    style={{ backgroundColor: '#613916' }}
-                  />
-                  <div className="layer__label">espresso</div>
-                </div>
-              </div>
-            </div>
-            <div className="drink__controls">
-              <button className="order-btn">Objednat</button>
-            </div>
-          </div>
+          <Drink
+            name="Lungo"
+            ordered={false}
+            image="/cups/lungo.png"
+            layers={[
+              {
+                color: '#b0dee1',
+                label: 'voda',
+              },
+              {
+                color: '#613916',
+                label: 'espresso',
+              },
+            ]}
+          />
         </div>
 
         <div className="order-detail">
