@@ -27,7 +27,7 @@ export const Menu = ({ drinks }) => {
         <div className="drinks-list">{drinkList(drinks)}</div>
 
         <div className="order-detail">
-          <a href="/objednavka">Detail objednávky</a>
+          <a href="/order.html">Detail objednávky</a>
         </div>
       </div>
     </section>
